@@ -1,0 +1,143 @@
+name: Spring Boot 3 APIs
+description: Comprehensive collection of Spring Boot 3 framework APIs and resources
+image: https://spring.io/img/spring-logo.svg
+url: https://spring.io/projects/spring-boot
+type: Index
+created: '2024-01-15'
+modified: '2024-01-15'
+specificationVersion: '0.16'
+apis:
+- name: Spring Boot Core API
+  description: Core Spring Boot 3 framework APIs for application development
+  image: https://spring.io/img/spring-boot-logo.svg
+  humanUrl: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/
+  baseUrl: https://api.example.com/v3
+  tags:
+  - Framework
+  - Java
+  - Microservices
+  - REST
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/
+  - type: API Documentation
+    url: https://docs.spring.io/spring-boot/docs/3.0.x/api/
+  - type: OpenAPI
+    url: https://api.example.com/v3/api-docs
+  - type: Swagger UI
+    url: https://api.example.com/swagger-ui.html
+  contact:
+  - type: GitHub
+    url: https://github.com/spring-projects/spring-boot
+  - type: Support
+    url: https://spring.io/support
+  - type: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/spring-boot
+- name: Spring Boot Actuator API
+  description: Production-ready features for monitoring and managing Spring Boot applications
+  humanUrl: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
+  baseUrl: https://api.example.com/actuator
+  tags:
+  - Monitoring
+  - Health Check
+  - Metrics
+  - Management
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
+  - type: API Documentation
+    url: https://docs.spring.io/spring-boot/docs/3.0.x/actuator-api/htmlsingle/
+  - type: Endpoints
+    url: https://api.example.com/actuator
+  endpoints:
+  - path: /health
+    description: Application health information
+  - path: /metrics
+    description: Application metrics
+  - path: /info
+    description: Application information
+  - path: /env
+    description: Environment properties
+  - path: /loggers
+    description: Logger configuration
+- name: Spring Web MVC API
+  description: Web MVC framework for building web applications and RESTful services
+  humanUrl: https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
+  baseUrl: https://api.example.com/api
+  tags:
+  - REST
+  - Web
+  - MVC
+  - HTTP
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
+  - type: Tutorial
+    url: https://spring.io/guides/gs/rest-service/
+  - type: OpenAPI
+    url: https://api.example.com/v3/api-docs
+- name: Spring Data REST API
+  description: Automatically expose Spring Data repositories as REST resources
+  humanUrl: https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+  baseUrl: https://api.example.com/api
+  tags:
+  - REST
+  - Data
+  - Repository
+  - CRUD
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+  - type: API Documentation
+    url: https://docs.spring.io/spring-data/rest/docs/current/api/
+  - type: HAL Browser
+    url: https://api.example.com/browser/
+- name: Spring Security API
+  description: Security framework for authentication and authorization
+  humanUrl: https://docs.spring.io/spring-security/reference/
+  baseUrl: https://api.example.com/api
+  tags:
+  - Security
+  - Authentication
+  - Authorization
+  - OAuth2
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-security/reference/
+  - type: API Documentation
+    url: https://docs.spring.io/spring-security/site/docs/6.0.x/api/
+  - type: OAuth2 Guide
+    url: https://spring.io/guides/tutorials/spring-boot-oauth2/
+maintainers:
+- name: VMware Tanzu (Broadcom)
+  email: spring-team@vmware.com
+  url: https://spring.io/team
+tags:
+- Spring Boot
+- Java
+- Microservices
+- REST API
+- Framework
+- Enterprise
+common:
+- type: Getting Started
+  url: https://spring.io/guides/gs/spring-boot/
+- type: GitHub Repository
+  url: https://github.com/spring-projects/spring-boot
+- type: Release Notes
+  url: https://github.com/spring-projects/spring-boot/releases
+- type: Migration Guide
+  url: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+- type: Community
+  url: https://spring.io/community
+- type: Blog
+  url: https://spring.io/blog
+- type: Twitter
+  url: https://twitter.com/springboot
+include:
+- name: Spring Framework
+  url: https://spring.io/projects/spring-framework
+- name: Spring Cloud
+  url: https://spring.io/projects/spring-cloud
+- name: Spring Data
+  url: https://spring.io/projects/spring-data
