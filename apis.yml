@@ -38,21 +38,18 @@ apis:
   - name: Spring Boot Actuator API
     description: >-
       Production-ready features for monitoring and managing Spring Boot applications.
-    humanUrl: 
-      https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
+    humanUrl: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
     baseUrl: https://api.example.com/actuator
     tags:
-      - Monitoring
       - Health Check
-      - Metrics
       - Management
+      - Metrics
+      - Monitoring
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
+        url: https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html
       - type: API Documentation
-        url: 
-          https://docs.spring.io/spring-boot/docs/3.0.x/actuator-api/htmlsingle/
+        url: https://docs.spring.io/spring-boot/docs/3.0.x/actuator-api/htmlsingle/
       - type: Endpoints
         url: https://api.example.com/actuator
     endpoints:
@@ -69,18 +66,16 @@ apis:
   - name: Spring Web MVC API
     description: >-
       Web MVC framework for building web applications and RESTful services.
-    humanUrl: 
-      https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
+    humanUrl: https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
     baseUrl: https://api.example.com/api
     tags:
+      - HTTP
+      - MVC
       - REST
       - Web
-      - MVC
-      - HTTP
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
+        url: https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html
       - type: Tutorial
         url: https://spring.io/guides/gs/rest-service/
       - type: OpenAPI
@@ -88,18 +83,16 @@ apis:
   - name: Spring Data REST API
     description: >-
       Automatically expose Spring Data repositories as REST resources.
-    humanUrl: 
-      https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+    humanUrl: https://docs.spring.io/spring-data/rest/docs/current/reference/html/
     baseUrl: https://api.example.com/api
     tags:
-      - REST
+      - CRUD
       - Data
       - Repository
-      - CRUD
+      - REST
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+        url: https://docs.spring.io/spring-data/rest/docs/current/reference/html/
       - type: API Documentation
         url: https://docs.spring.io/spring-data/rest/docs/current/api/
       - type: HAL Browser
@@ -110,10 +103,10 @@ apis:
     humanUrl: https://docs.spring.io/spring-security/reference/
     baseUrl: https://api.example.com/api
     tags:
-      - Security
       - Authentication
       - Authorization
       - OAuth2
+      - Security
     properties:
       - type: Documentation
         url: https://docs.spring.io/spring-security/reference/
@@ -126,12 +119,12 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 tags:
-  - Spring Boot
+  - Enterprise
+  - Framework
   - Java
   - Microservices
   - REST API
-  - Framework
-  - Enterprise
+  - Spring Boot
 common:
   - type: Getting Started
     url: https://spring.io/guides/gs/spring-boot/
@@ -140,8 +133,7 @@ common:
   - type: Release Notes
     url: https://github.com/spring-projects/spring-boot/releases
   - type: Migration Guide
-    url: 
-      https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+    url: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
   - type: Community
     url: https://spring.io/community
   - type: Blog
