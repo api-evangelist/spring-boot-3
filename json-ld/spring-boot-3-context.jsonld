@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@vocab": "https://spring.io/boot/3/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "boot": "https://spring.io/boot/3/",
+
+    "HealthResponse": "boot:HealthResponse",
+    "ComponentHealth": "boot:ComponentHealth",
+    "MetricDetail": "boot:MetricDetail",
+    "Measurement": "boot:Measurement",
+    "EnvironmentResponse": "boot:EnvironmentResponse",
+    "PropertySource": "boot:PropertySource",
+    "LoggerDetail": "boot:LoggerDetail",
+    "ScheduledTask": "boot:ScheduledTask",
+
+    "status": { "@id": "boot:status", "@type": "xsd:string" },
+    "components": { "@id": "boot:components", "@type": "@id" },
+    "details": { "@id": "boot:details", "@type": "@id" },
+
+    "name": { "@id": "schema:name", "@type": "xsd:string" },
+    "description": { "@id": "schema:description", "@type": "xsd:string" },
+    "baseUnit": { "@id": "boot:baseUnit", "@type": "xsd:string" },
+    "measurements": { "@id": "boot:measurements", "@type": "@id", "@container": "@list" },
+    "statistic": { "@id": "boot:statistic", "@type": "xsd:string" },
+    "value": { "@id": "boot:value" },
+
+    "availableTags": { "@id": "boot:availableTags", "@type": "@id", "@container": "@list" },
+    "tag": { "@id": "boot:tag", "@type": "xsd:string" },
+    "values": { "@id": "boot:values", "@container": "@list" },
+
+    "activeProfiles": { "@id": "boot:activeProfiles", "@container": "@list" },
+    "defaultProfiles": { "@id": "boot:defaultProfiles", "@container": "@list" },
+    "propertySources": { "@id": "boot:propertySources", "@container": "@list" },
+    "properties": { "@id": "boot:properties", "@type": "@id" },
+
+    "configuredLevel": { "@id": "boot:configuredLevel", "@type": "xsd:string" },
+    "effectiveLevel": { "@id": "boot:effectiveLevel", "@type": "xsd:string" },
+
+    "threadName": { "@id": "boot:threadName", "@type": "xsd:string" },
+    "threadState": { "@id": "boot:threadState", "@type": "xsd:string" },
+    "daemon": { "@id": "boot:daemon", "@type": "xsd:boolean" },
+
+    "expression": { "@id": "boot:expression", "@type": "xsd:string" },
+    "interval": { "@id": "boot:interval", "@type": "xsd:long" },
+    "initialDelay": { "@id": "boot:initialDelay", "@type": "xsd:long" }
+  }
+}

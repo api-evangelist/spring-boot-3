@@ -1,0 +1,173 @@
+name: Spring Boot 3 Vocabulary
+description: >-
+  Domain vocabulary for Spring Boot 3 covering auto-configuration, Actuator
+  monitoring, observability, embedded servers, security, and the Spring Boot 3
+  programming model.
+version: 3.2.0
+created: '2026-05-02'
+modified: '2026-05-02'
+tags:
+  - Spring Boot
+  - Java
+  - Framework
+  - Microservices
+
+terms:
+  # Core Framework
+  - term: Auto-Configuration
+    definition: >-
+      Spring Boot's mechanism for automatically configuring the application
+      context based on the libraries present on the classpath. Uses @Conditional
+      annotations to apply configuration only when specific conditions are met.
+      Eliminates the need for explicit XML or Java configuration for common setups.
+    category: Core Feature
+    relatedTerms: [Starter, Conditional, SpringApplication]
+
+  - term: Starter
+    definition: >-
+      Convenient dependency descriptors that bundle commonly used libraries with
+      sensible defaults. For example, spring-boot-starter-web includes Tomcat
+      and Spring Web MVC. Starters trigger auto-configuration when added to the
+      classpath.
+    category: Core Feature
+    relatedTerms: [Auto-Configuration, Dependency Management]
+
+  - term: SpringApplication
+    definition: >-
+      The main entry point for Spring Boot applications. Bootstraps the
+      ApplicationContext, configures logging, and starts the embedded web server.
+      Supports customization through SpringApplicationBuilder.
+    category: Core Feature
+    relatedTerms: [Auto-Configuration, ApplicationContext]
+
+  - term: Embedded Server
+    definition: >-
+      Spring Boot 3 embeds a web server (Tomcat by default, optionally Jetty
+      or Undertow) directly in the application JAR. The application runs as a
+      stand-alone process without requiring external server deployment.
+    category: Core Feature
+    relatedTerms: [SpringApplication, Fat JAR]
+
+  - term: Fat JAR
+    definition: >-
+      An executable JAR file containing the application classes, all dependencies,
+      and an embedded server. Created by the Spring Boot Maven/Gradle plugin.
+      Enables deployment as a single self-contained artifact.
+    category: Deployment
+    relatedTerms: [Embedded Server, Native Image]
+
+  - term: Native Image
+    definition: >-
+      Spring Boot 3 native image support via GraalVM AOT compilation. Produces
+      a standalone native executable with faster startup time and lower memory
+      footprint compared to JVM-based deployment.
+    category: Deployment
+    relatedTerms: [GraalVM, AOT Processing]
+
+  # Actuator
+  - term: Actuator
+    definition: >-
+      Spring Boot sub-project providing production-ready management and monitoring
+      endpoints. Exposes over 50 built-in endpoints for health checks, metrics,
+      environment, logging, and more. Endpoints are accessible via HTTP or JMX.
+    category: Monitoring
+    relatedTerms: [HealthIndicator, Endpoint, Micrometer]
+
+  - term: Endpoint
+    definition: >-
+      A management feature exposed by Spring Boot Actuator. Each endpoint has
+      a unique ID (health, metrics, env, loggers) and can be enabled/disabled
+      and secured independently. HTTP endpoints are served under /actuator by
+      default.
+    category: Monitoring
+    relatedTerms: [Actuator, HealthEndpoint, MetricsEndpoint]
+
+  - term: HealthIndicator
+    definition: >-
+      A component that contributes to the application's health status. Spring
+      Boot provides built-in indicators for databases, disk space, message
+      brokers, and cache providers. Custom indicators can be registered as
+      Spring beans.
+    category: Monitoring
+    relatedTerms: [Actuator, HealthResponse, CompositeHealthContributor]
+
+  - term: HealthStatus
+    definition: >-
+      Enumeration of possible health states: UP (healthy), DOWN (unhealthy),
+      OUT_OF_SERVICE (intentionally offline), UNKNOWN (status cannot be
+      determined). The aggregate status is derived from the worst individual
+      component status.
+    category: Monitoring
+    values: [UP, DOWN, OUT_OF_SERVICE, UNKNOWN]
+
+  - term: Micrometer
+    definition: >-
+      Vendor-neutral application metrics facade used by Spring Boot 3 for
+      collecting and exposing metrics. Supports backends including Prometheus,
+      DataDog, New Relic, CloudWatch, and more. Spring Boot 3 exposes Micrometer
+      metrics via the /actuator/metrics endpoint.
+    category: Observability
+    relatedTerms: [Actuator, MetricsEndpoint, Timer, Counter, Gauge]
+
+  - term: Micrometer Tracing
+    definition: >-
+      Spring Boot 3 integrates Micrometer Tracing (formerly Spring Cloud Sleuth)
+      for distributed tracing. Instruments inbound/outbound HTTP calls, messaging,
+      and database queries to produce trace IDs and spans compatible with Zipkin,
+      Jaeger, and OpenTelemetry.
+    category: Observability
+    relatedTerms: [Micrometer, OpenTelemetry, TraceId, SpanId]
+
+  # Configuration
+  - term: Externalized Configuration
+    definition: >-
+      Spring Boot's mechanism for configuring applications from outside the
+      packaged artifact. Configuration sources are prioritized: command-line args,
+      environment variables, application.properties/yml files, and @Value
+      injection. Spring Boot 3 supports structured configuration files and
+      configuration trees.
+    category: Configuration
+    relatedTerms: [ConfigurationProperties, Profiles, Environment]
+
+  - term: ConfigurationProperties
+    definition: >-
+      Type-safe binding of configuration properties to POJOs using @ConfigurationProperties
+      annotation. Supports validation, relaxed binding, and nested properties.
+      The recommended approach for structured configuration in Spring Boot 3.
+    category: Configuration
+    relatedTerms: [Externalized Configuration, Profiles]
+
+  - term: Profiles
+    definition: >-
+      Spring Boot profiles allow grouping beans and configuration for specific
+      environments (dev, test, prod). Active profiles are selected via
+      spring.profiles.active property. Profile-specific configuration files
+      follow the application-{profile}.yml naming convention.
+    category: Configuration
+    relatedTerms: [Externalized Configuration, ConfigurationProperties]
+
+  # Spring Boot 3 Specifics
+  - term: Jakarta EE
+    definition: >-
+      Spring Boot 3 migrated from javax.* to jakarta.* namespaces, aligning
+      with Jakarta EE 10. All Spring Boot 3 applications must use
+      jakarta.servlet.*, jakarta.persistence.*, etc. instead of the old
+      javax.* equivalents.
+    category: Migration
+    relatedTerms: [Spring Framework 6, Java 17]
+
+  - term: Problem Details
+    definition: >-
+      Spring Boot 3 adds native support for RFC 7807 Problem Details for HTTP
+      APIs (application/problem+json). Error responses include type, title,
+      status, detail, and instance fields for machine-readable error descriptions.
+    category: API Design
+    relatedTerms: [Spring Web MVC, REST API]
+
+  - term: Virtual Threads
+    definition: >-
+      Spring Boot 3.2+ supports Java 21 virtual threads via the Loom project.
+      Enable with spring.threads.virtual.enabled=true to handle high concurrency
+      without platform thread pool exhaustion.
+    category: Performance
+    relatedTerms: [Embedded Server, Java 21]

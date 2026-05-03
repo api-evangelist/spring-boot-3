@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spring.io/schema/boot/3/health",
+  "title": "Spring Boot 3 Health Response",
+  "description": "Health status response returned by Spring Boot 3 Actuator /health endpoint. Aggregates all registered HealthIndicator results into a single response.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Overall application health status aggregated from all health indicators.",
+      "enum": ["UP", "DOWN", "OUT_OF_SERVICE", "UNKNOWN"]
+    },
+    "components": {
+      "type": "object",
+      "description": "Health status of individual components keyed by component name.",
+      "additionalProperties": {
+        "$ref": "#/$defs/ComponentHealth"
+      }
+    }
+  },
+  "required": ["status"],
+  "$defs": {
+    "ComponentHealth": {
+      "title": "Component Health",
+      "description": "Health status for a single application component such as database, disk space, or message broker.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Component health status.",
+          "enum": ["UP", "DOWN", "OUT_OF_SERVICE", "UNKNOWN"]
+        },
+        "details": {
+          "type": "object",
+          "description": "Component-specific health details (database name, validation query, free disk space, etc.).",
+          "additionalProperties": true
+        },
+        "components": {
+          "type": "object",
+          "description": "Nested sub-component health for composite indicators.",
+          "additionalProperties": {
+            "$ref": "#/$defs/ComponentHealth"
+          }
+        }
+      },
+      "required": ["status"]
+    }
+  }
+}

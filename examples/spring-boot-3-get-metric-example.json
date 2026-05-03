@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:8080/actuator/metrics/jvm.memory.used?tag=area:heap",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "jvm.memory.used",
+      "description": "The amount of used memory",
+      "baseUnit": "bytes",
+      "measurements": [
+        {
+          "statistic": "VALUE",
+          "value": 186142720
+        }
+      ],
+      "availableTags": [
+        {
+          "tag": "area",
+          "values": ["heap", "nonheap"]
+        },
+        {
+          "tag": "id",
+          "values": ["G1 Eden Space", "G1 Survivor Space", "G1 Old Gen"]
+        }
+      ]
+    }
+  }
+}

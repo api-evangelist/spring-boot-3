@@ -1,0 +1,113 @@
+{
+  "title": "Spring Boot 3 Actuator Domain Structure",
+  "description": "Hierarchical structure of Spring Boot 3 Actuator domain model showing health, metrics, environment, and logging subsystems.",
+  "structure": {
+    "ActuatorEndpoints": {
+      "description": "Top-level Actuator endpoint categories",
+      "categories": {
+        "HealthEndpoint": {
+          "description": "Aggregated health status from all HealthIndicators",
+          "path": "/actuator/health",
+          "fields": {
+            "status": "HealthStatus enum — UP, DOWN, OUT_OF_SERVICE, UNKNOWN",
+            "components": "Map<String, Health> — per-component status"
+          },
+          "builtInIndicators": [
+            "DatabaseHealthIndicator",
+            "DiskSpaceHealthIndicator",
+            "PingHealthIndicator",
+            "RedisHealthIndicator",
+            "RabbitHealthIndicator",
+            "KafkaHealthIndicator",
+            "ElasticsearchHealthIndicator",
+            "MongoHealthIndicator"
+          ]
+        },
+        "MetricsEndpoint": {
+          "description": "Micrometer-based application metrics registry",
+          "path": "/actuator/metrics",
+          "fields": {
+            "names": "List<String> — all registered metric names"
+          },
+          "children": {
+            "MetricDetail": {
+              "path": "/actuator/metrics/{metricName}",
+              "fields": {
+                "name": "String — metric name",
+                "description": "String — human-readable description",
+                "baseUnit": "String — measurement unit",
+                "measurements": "List<Measurement> — statistic values",
+                "availableTags": "List<TagValues> — filterable dimensions"
+              }
+            }
+          },
+          "commonMetrics": [
+            "jvm.memory.used",
+            "jvm.memory.max",
+            "jvm.gc.pause",
+            "jvm.threads.live",
+            "process.uptime",
+            "process.cpu.usage",
+            "system.cpu.usage",
+            "http.server.requests",
+            "hikaricp.connections.active",
+            "logback.events"
+          ]
+        },
+        "EnvironmentEndpoint": {
+          "description": "Application environment and configuration",
+          "path": "/actuator/env",
+          "fields": {
+            "activeProfiles": "List<String> — active Spring profiles",
+            "defaultProfiles": "List<String> — default profiles",
+            "propertySources": "List<PropertySource> — ordered property sources"
+          },
+          "children": {
+            "PropertySource": {
+              "fields": {
+                "name": "String — source name (e.g., applicationConfig, systemProperties)",
+                "properties": "Map<String, PropertyEntry> — key-value pairs"
+              }
+            }
+          }
+        },
+        "LoggersEndpoint": {
+          "description": "Runtime logger configuration",
+          "path": "/actuator/loggers",
+          "fields": {
+            "levels": "List<String> — available log levels",
+            "loggers": "Map<String, LoggerConfiguration> — all logger configs",
+            "groups": "Map<String, LoggerGroup> — Spring Boot logger groups"
+          },
+          "children": {
+            "LoggerConfiguration": {
+              "fields": {
+                "configuredLevel": "LogLevel — explicitly set level (nullable)",
+                "effectiveLevel": "LogLevel — inherited effective level"
+              }
+            }
+          }
+        },
+        "InfoEndpoint": {
+          "description": "Application metadata from InfoContributors",
+          "path": "/actuator/info",
+          "contributors": [
+            "BuildInfoContributor — from META-INF/build-info.properties",
+            "GitInfoContributor — from git.properties",
+            "JavaInfoContributor — JVM information",
+            "OsInfoContributor — OS information"
+          ]
+        },
+        "ThreadDumpEndpoint": {
+          "description": "JVM thread snapshot for diagnostics",
+          "path": "/actuator/threaddump"
+        },
+        "ScheduledTasksEndpoint": {
+          "description": "All @Scheduled tasks registered in context",
+          "path": "/actuator/scheduledtasks",
+          "taskTypes": ["cron", "fixedDelay", "fixedRate", "custom"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spring.io/schema/boot/3/metrics",
+  "title": "Spring Boot 3 Metric Detail",
+  "description": "Micrometer metric detail response returned by Spring Boot 3 Actuator /metrics/{name} endpoint. Contains measurements, available tags, and metric metadata.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Metric name in dot-notation.",
+      "example": "jvm.memory.used"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable metric description from Micrometer registration."
+    },
+    "baseUnit": {
+      "type": "string",
+      "description": "Base measurement unit (bytes, seconds, operations, etc.).",
+      "example": "bytes"
+    },
+    "measurements": {
+      "type": "array",
+      "description": "Current measurement values for the metric.",
+      "items": {
+        "$ref": "#/$defs/Measurement"
+      }
+    },
+    "availableTags": {
+      "type": "array",
+      "description": "Tag dimensions available for filtering this metric.",
+      "items": {
+        "$ref": "#/$defs/TagValues"
+      }
+    }
+  },
+  "required": ["name", "measurements"],
+  "$defs": {
+    "Measurement": {
+      "title": "Measurement",
+      "description": "A single statistical measurement value for a metric.",
+      "type": "object",
+      "properties": {
+        "statistic": {
+          "type": "string",
+          "description": "Statistical type of this measurement.",
+          "enum": ["COUNT", "TOTAL", "MAX", "VALUE", "ACTIVE_TASKS", "DURATION", "TOTAL_TIME"]
+        },
+        "value": {
+          "type": "number",
+          "description": "Current numeric value of the measurement."
+        }
+      },
+      "required": ["statistic", "value"]
+    },
+    "TagValues": {
+      "title": "Tag Values",
+      "description": "A tag dimension with all observed values.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "type": "string",
+          "description": "Tag name (e.g., area, pool, uri, method, status).",
+          "example": "area"
+        },
+        "values": {
+          "type": "array",
+          "description": "All observed values for this tag.",
+          "items": {
+            "type": "string"
+          },
+          "example": ["heap", "nonheap"]
+        }
+      },
+      "required": ["tag", "values"]
+    }
+  }
+}

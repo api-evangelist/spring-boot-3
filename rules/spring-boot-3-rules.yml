@@ -1,0 +1,74 @@
+extends: spectral:oas
+rules:
+  spring-boot-actuator-operationid-required:
+    description: All Spring Boot Actuator operations must have an operationId.
+    message: "OperationId is required for every actuator endpoint operation."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  spring-boot-actuator-operationid-camelcase:
+    description: OperationIds must use camelCase to match Spring Boot conventions.
+    message: "OperationId '{{value}}' must use camelCase."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  spring-boot-actuator-tags-required:
+    description: All operations must have at least one tag for API grouping.
+    message: "Operation must have at least one tag."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  spring-boot-actuator-response-200-on-get:
+    description: All GET operations must define a 200 response.
+    message: "GET operation must define a 200 OK response."
+    severity: error
+    given: "$.paths[*].get.responses"
+    then:
+      field: "200"
+      function: truthy
+
+  spring-boot-actuator-schema-description:
+    description: All named schemas should have a description.
+    message: "Schema '{{property}}' is missing a description."
+    severity: warn
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  spring-boot-actuator-health-status-enum:
+    description: Health status fields should use Spring Boot's standard status values.
+    message: "Health status should be UP, DOWN, OUT_OF_SERVICE, or UNKNOWN."
+    severity: info
+    given: "$.components.schemas[*].properties.status"
+    then:
+      field: enum
+      function: truthy
+
+  spring-boot-actuator-post-request-body:
+    description: POST operations that mutate state should define a request body.
+    message: "POST operation should define a requestBody for mutation operations."
+    severity: warn
+    given: "$.paths[*].post"
+    then:
+      field: requestBody
+      function: truthy
+
+  spring-boot-actuator-parameter-description:
+    description: All path and query parameters must have descriptions.
+    message: "Parameter '{{value}}' is missing a description."
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy

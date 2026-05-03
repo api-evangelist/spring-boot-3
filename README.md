@@ -1,103 +1,104 @@
-# Spring Boot 3 APIs (spring-boot-3)
-Comprehensive collection of Spring Boot 3 framework APIs and resources
+# Spring Boot 3
 
-**URL:** [Visit APIs.json URL](https://spring.io/projects/spring-boot)
+Spring Boot 3 is the major release of the opinionated Spring application framework, built on Spring Framework 6, requiring Java 17 baseline and Jakarta EE 10. It delivers native image support via GraalVM, improved observability with Micrometer tracing, and a modernized auto-configuration system.
 
-## Scope
-
-- **Type:** Index 
-
-## Tags:
-
- - Spring Boot, Java, Microservices, REST API, Framework, Enterprise
-
-## Timestamps
-
-- **Created:** 2024-01-15 
-- **Modified:** 2024-01-15 
+- **URL:** https://spring.io/projects/spring-boot
+- **Type:** Open Source
+- **Tags:** Enterprise, Framework, Java, Microservices, REST API, Spring Boot
 
 ## APIs
 
-### Spring Boot Core API
-Core Spring Boot 3 framework APIs for application development
-
-**Human URL:** [https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/)
-
-
-#### Tags:
-
- - Framework, Java, Microservices, REST
-
-#### Properties
-
-- [Documentation](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/)
-- [API Documentation](https://docs.spring.io/spring-boot/docs/3.0.x/api/)
-- [OpenAPI](https://api.example.com/v3/api-docs)
-- [Swagger UI](https://api.example.com/swagger-ui.html)
-
 ### Spring Boot Actuator API
-Production-ready features for monitoring and managing Spring Boot applications
 
-**Human URL:** [https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html)
+Production-ready features for monitoring and managing Spring Boot 3 applications. Provides health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, and more.
 
+- [Documentation](https://docs.spring.io/spring-boot/docs/3.2.x/reference/html/actuator.html)
+- [API Documentation](https://docs.spring.io/spring-boot/docs/3.2.x/actuator-api/htmlsingle/)
+- [GitHub Repository](https://github.com/spring-projects/spring-boot)
 
-#### Tags:
+### Spring Boot Core Framework
 
- - Monitoring, Health Check, Metrics, Management
+Core Spring Boot 3 auto-configuration, embedded server, and application bootstrap support.
 
-#### Properties
-
-- [Documentation](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/actuator.html)
-- [API Documentation](https://docs.spring.io/spring-boot/docs/3.0.x/actuator-api/htmlsingle/)
-- [Endpoints](https://api.example.com/actuator)
+- [Documentation](https://docs.spring.io/spring-boot/docs/3.2.x/reference/html/)
+- [Getting Started](https://spring.io/guides/gs/spring-boot/)
 
 ### Spring Web MVC API
-Web MVC framework for building web applications and RESTful services
 
-**Human URL:** [https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html](https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html)
+Web MVC framework for building web applications and RESTful services with Spring Boot 3.
 
-
-#### Tags:
-
- - REST, Web, MVC, HTTP
-
-#### Properties
-
-- [Documentation](https://docs.spring.io/spring-framework/docs/6.0.x/reference/html/web.html)
-- [Tutorial](https://spring.io/guides/gs/rest-service/)
-- [OpenAPI](https://api.example.com/v3/api-docs)
+- [Documentation](https://docs.spring.io/spring-framework/docs/6.1.x/reference/html/web.html)
 
 ### Spring Data REST API
-Automatically expose Spring Data repositories as REST resources
 
-**Human URL:** [https://docs.spring.io/spring-data/rest/docs/current/reference/html/](https://docs.spring.io/spring-data/rest/docs/current/reference/html/)
-
-
-#### Tags:
-
- - REST, Data, Repository, CRUD
-
-#### Properties
+Automatically expose Spring Data repositories as hypermedia-driven REST resources.
 
 - [Documentation](https://docs.spring.io/spring-data/rest/docs/current/reference/html/)
-- [API Documentation](https://docs.spring.io/spring-data/rest/docs/current/api/)
-- [HAL Browser](https://api.example.com/browser/)
 
 ### Spring Security API
-Security framework for authentication and authorization
 
-**Human URL:** [https://docs.spring.io/spring-security/reference/](https://docs.spring.io/spring-security/reference/)
-
-
-#### Tags:
-
- - Security, Authentication, Authorization, OAuth2
-
-#### Properties
+Security framework for authentication and authorization in Spring Boot 3 applications.
 
 - [Documentation](https://docs.spring.io/spring-security/reference/)
-- [API Documentation](https://docs.spring.io/spring-security/site/docs/6.0.x/api/)
-- [OAuth2 Guide](https://spring.io/guides/tutorials/spring-boot-oauth2/)
+
+## OpenAPI Specifications
+
+| API | File |
+|-----|------|
+| Spring Boot 3 Actuator API | [openapi/spring-boot-3-actuator-openapi.yml](openapi/spring-boot-3-actuator-openapi.yml) |
+
+## Spectral Rules
+
+| Ruleset | File |
+|---------|------|
+| Spring Boot 3 Rules | [rules/spring-boot-3-rules.yml](rules/spring-boot-3-rules.yml) |
+
+## Capabilities
+
+### Shared Definitions
+
+| API | File |
+|-----|------|
+| Spring Boot 3 Actuator API | [capabilities/shared/spring-boot-3-actuator.yaml](capabilities/shared/spring-boot-3-actuator.yaml) |
+
+### Workflow Capabilities
+
+| Workflow | Description | File |
+|----------|-------------|------|
+| Application Observability | Health, metrics, logging, and diagnostics | [capabilities/application-observability.yaml](capabilities/application-observability.yaml) |
+
+## JSON Schemas
+
+| Schema | File |
+|--------|------|
+| Health Response | [json-schema/spring-boot-3-health-schema.json](json-schema/spring-boot-3-health-schema.json) |
+| Metric Detail | [json-schema/spring-boot-3-metrics-schema.json](json-schema/spring-boot-3-metrics-schema.json) |
+
+## JSON Structures
+
+| Structure | File |
+|-----------|------|
+| Actuator Domain Model | [json-structure/spring-boot-3-actuator-structure.json](json-structure/spring-boot-3-actuator-structure.json) |
+
+## JSON-LD Contexts
+
+| Context | File |
+|---------|------|
+| Spring Boot 3 | [json-ld/spring-boot-3-context.jsonld](json-ld/spring-boot-3-context.jsonld) |
+
+## Examples
+
+| Example | File |
+|---------|------|
+| Get Application Health | [examples/spring-boot-3-get-health-example.json](examples/spring-boot-3-get-health-example.json) |
+| Get Metric Value | [examples/spring-boot-3-get-metric-example.json](examples/spring-boot-3-get-metric-example.json) |
+| Set Logger Level | [examples/spring-boot-3-set-logger-level-example.json](examples/spring-boot-3-set-logger-level-example.json) |
+
+## Vocabulary
+
+| Vocabulary | File |
+|------------|------|
+| Spring Boot 3 Domain Terms | [vocabulary/spring-boot-3-vocabulary.yml](vocabulary/spring-boot-3-vocabulary.yml) |
 
 ## Common Properties
 
@@ -107,10 +108,7 @@ Security framework for authentication and authorization
 - [Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
 - [Community](https://spring.io/community)
 - [Blog](https://spring.io/blog)
-- [Twitter](https://twitter.com/springboot)
 
 ## Maintainers
 
-**FN:** VMware Tanzu (Broadcom)
-
-**Email:** spring-team@vmware.com
+- VMware Tanzu (Broadcom) — spring-team@vmware.com

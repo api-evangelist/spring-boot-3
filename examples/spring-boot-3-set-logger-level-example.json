@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:8080/actuator/loggers/com.example.service.UserService",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "configuredLevel": "DEBUG"
+    }
+  },
+  "response": {
+    "status": 204,
+    "headers": {},
+    "body": null
+  },
+  "description": "Temporarily sets the log level for com.example.service.UserService to DEBUG at runtime without restarting the application. This change persists only until the application restarts."
+}
