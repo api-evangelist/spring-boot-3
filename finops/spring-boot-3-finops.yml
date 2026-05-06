@@ -1,170 +1,74 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Spring Boot 3
+providerId: spring-boot-3
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Framework
+  - Java
+  - Spring Boot
+  - FinOps
+  - FOCUS
+description: FOCUS-aligned FinOps placeholder for Spring Boot 3. The framework
+  is free and open-source; the FinOps surface lives in the optional Tanzu Spring
+  support contract and in the cloud / runtime cost of the applications it
+  powers.
+sources:
+  - https://spring.io/projects/spring-boot
+  - https://enterprise.spring.io/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Spring Boot 3
-providerId: spring-boot-3
-publisherName: Spring Boot 3
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Enterprise
-  - Framework
-  - Java
-  - Microservices
-  - REST API
-  - Spring Boot
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Spring Boot 3 API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: Broadcom Inc. (VMware Tanzu)
+serviceCategory: Open-Source Framework
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Contact Sales
+  billingFrequency: Per-Contract
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: Spring Boot 3
-  ServiceCategory: Developer Tools / API
-  ProviderName: Spring Boot 3
-  PublisherName: Spring Boot 3
-  InvoiceIssuerName: Spring Boot 3
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceCategory: Open-Source Framework
+  ProviderName: Spring Boot (VMware Tanzu)
+  PublisherName: Broadcom Inc.
+  InvoiceIssuerName: Broadcom Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: tanzu_spring_support
+    description: Tanzu Spring support subscription that covers Spring Boot.
+      Billing basis is contractual; not publicly disclosed.
+    unit: varies
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Spring Boot Actuator API
-    baseURL: http://localhost:8080/actuator
-    tags:
-      - Health Check
-      - Management
-      - Metrics
-      - Monitoring
-    serviceName: Spring Boot Actuator API
-    serviceCategory: API
-  - name: Spring Boot Core Framework
-    baseURL: https://github.com/spring-projects/spring-boot
-    tags:
-      - Auto-Configuration
-      - Embedded Server
-      - Framework
-      - Java
-    serviceName: Spring Boot Core Framework
-    serviceCategory: API
-  - name: Spring Web MVC API
-    baseURL: http://localhost:8080
-    tags:
-      - HTTP
-      - MVC
-      - REST
-      - Web
-    serviceName: Spring Web MVC API
-    serviceCategory: API
-  - name: Spring Data REST API
-    baseURL: http://localhost:8080/api
-    tags:
-      - CRUD
-      - Data
-      - HAL
-      - REST
-    serviceName: Spring Data REST API
-    serviceCategory: API
-  - name: Spring Security API
-    baseURL: http://localhost:8080
-    tags:
-      - Authentication
-      - Authorization
-      - OAuth2
-      - Security
-    serviceName: Spring Security API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - support_tier
+principles:
+  - name: Visibility
+    description: Use Spring Boot Actuator metrics exposed via Micrometer
+      (Prometheus, Datadog, Dynatrace, Elastic) to attribute runtime cost to
+      requests and tenants. The framework itself emits no billing telemetry.
+  - name: Allocation
+    description: Allocate Tanzu support fees to the platform team that contracts
+      the subscription; allocate runtime spend per application using cloud-tag
+      / Kubernetes namespace conventions and Boot's `info` and `metrics`
+      endpoints.
+  - name: Optimization
+    description: Reduce cloud runtime cost with GraalVM native images, Spring
+      Boot 3's AOT processing, and lazy initialization. Tune actuator scrape
+      intervals to balance observability cost. Choose JVM heap and CDS image
+      settings to fit the deployment shape.
+  - name: Accountability
+    description: Tanzu support cost owned by the platform team. Per-application
+      compute and observability cost owned by the workload team operating the
+      Spring Boot service.
+notes: Open-source library; per-call FinOps applies to the runtime of the
+  consuming application, not to Spring Boot itself.
 maintainers:
   - name: VMware Tanzu (Broadcom)
     email: spring-team@vmware.com
