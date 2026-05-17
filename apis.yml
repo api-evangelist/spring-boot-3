@@ -9,7 +9,7 @@ description: >-
   and externalized configuration.
 image: https://spring.io/img/spring-logo.svg
 url: https://spring.io/projects/spring-boot
-type: opensource
+kind: opensource
 created: '2024-01-15'
 modified: '2026-05-02'
 specificationVersion: '0.18'
@@ -39,7 +39,7 @@ apis:
         url: https://docs.spring.io/spring-boot/docs/3.2.x/reference/html/actuator.html
       - type: API Documentation
         url: https://docs.spring.io/spring-boot/docs/3.2.x/actuator-api/htmlsingle/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/spring-projects/spring-boot
       - type: OpenAPI
         url: openapi/spring-boot-3-actuator-openapi.yml
@@ -62,11 +62,11 @@ apis:
         url: https://docs.spring.io/spring-boot/docs/3.2.x/reference/html/
       - type: API Documentation
         url: https://docs.spring.io/spring-boot/docs/3.2.x/api/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/spring-projects/spring-boot
-      - type: Getting Started
+      - type: GettingStarted
         url: https://spring.io/guides/gs/spring-boot/
-      - type: Release Notes
+      - type: ReleaseNotes
         url: https://github.com/spring-projects/spring-boot/releases
       - type: Migration Guide
         url: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
@@ -129,11 +129,11 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
-  - type: Getting Started
+  - type: GettingStarted
     url: https://spring.io/guides/gs/spring-boot/
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/spring-projects/spring-boot
-  - type: Release Notes
+  - type: ReleaseNotes
     url: https://github.com/spring-projects/spring-boot/releases
   - type: Migration Guide
     url: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
