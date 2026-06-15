@@ -1,0 +1,1289 @@
+{
+  "item": [
+    {
+      "id": "1c9e6f01-269c-41ac-a6ca-3c7965e461dc",
+      "name": "Health",
+      "description": {
+        "content": "Application and component health indicators",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74da7436-62ab-4e30-a9c8-0f886d10d357",
+          "name": "Get Application Health",
+          "request": {
+            "name": "Get Application Health",
+            "description": {
+              "content": "Returns the overall health status of the application. Aggregates all registered HealthIndicators. When security is enabled, full details are only shown to authorized users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1f92815-4960-4111-97a8-f59f22b71e71",
+              "name": "Application is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OUT_OF_SERVICE\",\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"OUT_OF_SERVICE\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": 9336\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bad56fc8-89ab-4039-b7ba-c3fee9adc873",
+              "name": "Application is unhealthy or in OUT_OF_SERVICE state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OUT_OF_SERVICE\",\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"OUT_OF_SERVICE\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": 9336\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc8c303c-3eb0-4a1f-bbe8-e5d7b69c91fc",
+          "name": "Get Component Health",
+          "request": {
+            "name": "Get Component Health",
+            "description": {
+              "content": "Returns the health status of a specific component (e.g., db, diskSpace, redis, rabbit, kafka).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health",
+                ":component"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "component",
+                  "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed965fd4-bf34-45eb-8986-53cd659cdf40",
+              "name": "Component health status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    ":component"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "component",
+                      "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UNKNOWN\",\n  \"details\": {\n    \"key_0\": true\n  },\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"OUT_OF_SERVICE\",\n      \"details\": {\n        \"key_0\": 2002\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_1\": {\n      \"status\": \"DOWN\",\n      \"details\": {\n        \"key_0\": \"string\"\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_2\": {\n      \"status\": \"UNKNOWN\",\n      \"details\": {\n        \"key_0\": true,\n        \"key_1\": 3288.2995300562056\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_3\": {\n      \"status\": \"UNKNOWN\",\n      \"details\": {\n        \"key_0\": true,\n        \"key_1\": true\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6a2934d-caf3-4845-9d15-2613cbe1feb8",
+              "name": "Component not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    ":component"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "component",
+                      "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8d660b32-bfc4-49e5-bfbd-4cff64f438f5",
+      "name": "Metrics",
+      "description": {
+        "content": "Micrometer-based application metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "095ae309-75f5-4167-ad02-eeec79de4969",
+          "name": "List Available Metrics",
+          "request": {
+            "name": "List Available Metrics",
+            "description": {
+              "content": "Returns a list of all registered Micrometer metric names available in this application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad189a2b-26ff-4115-a1b4-020b40fed595",
+              "name": "Available metric names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"names\": [\n    \"jvm.memory.used\",\n    \"jvm.gc.pause\",\n    \"http.server.requests\",\n    \"process.uptime\",\n    \"system.cpu.usage\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d247d05e-0d1e-4bef-bc90-1dddd923d75e",
+          "name": "Get Metric Detail",
+          "request": {
+            "name": "Get Metric Detail",
+            "description": {
+              "content": "Returns measurements and available tags for a specific Micrometer metric. Use tag parameters to filter by dimension.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                ":metricName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Tag filter in name:value format (may be repeated)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metricName",
+                  "description": "(Required) Name of the metric (e.g., jvm.memory.used, http.server.requests)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e396c38-66e8-4a8f-b069-ed6517026481",
+              "name": "Metric measurements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    ":metricName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tag",
+                      "value": "area:heap"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metricName",
+                      "description": "(Required) Name of the metric (e.g., jvm.memory.used, http.server.requests)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"baseUnit\": \"string\",\n  \"measurements\": [\n    {\n      \"statistic\": \"DURATION\",\n      \"value\": 7685.244620551519\n    },\n    {\n      \"statistic\": \"TOTAL_TIME\",\n      \"value\": 1197.3616407262034\n    }\n  ],\n  \"availableTags\": [\n    {\n      \"tag\": \"string\",\n      \"values\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"tag\": \"string\",\n      \"values\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b2e3e90-3993-4a7a-a673-7beb94ee08d4",
+              "name": "Metric not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    ":metricName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tag",
+                      "value": "area:heap"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metricName",
+                      "description": "(Required) Name of the metric (e.g., jvm.memory.used, http.server.requests)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "90f47039-2b8e-4b7b-82bd-a8e9a5af90cf",
+      "name": "Environment",
+      "description": {
+        "content": "Application environment properties and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "184c9950-0858-49f5-b165-6265a1628af8",
+          "name": "Get Environment Properties",
+          "request": {
+            "name": "Get Environment Properties",
+            "description": {
+              "content": "Returns all application environment properties grouped by property source (application.properties, system properties, environment variables, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31724da0-158d-42ad-b35c-6b945589a8b5",
+              "name": "Environment properties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activeProfiles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"defaultProfiles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"propertySources\": [\n    {\n      \"name\": \"string\",\n      \"properties\": {\n        \"key_0\": {\n          \"value\": {},\n          \"origin\": \"string\"\n        },\n        \"key_1\": {\n          \"value\": {},\n          \"origin\": \"string\"\n        }\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"properties\": {\n        \"key_0\": {\n          \"value\": {},\n          \"origin\": \"string\"\n        },\n        \"key_1\": {\n          \"value\": {},\n          \"origin\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76ef02c1-c67f-46db-a5c1-99a4ec58cfe4",
+          "name": "Get Environment Property",
+          "request": {
+            "name": "Get Environment Property",
+            "description": {
+              "content": "Returns the value and origin of a specific environment property key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env",
+                ":toMatch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "toMatch",
+                  "description": "(Required) Property key to look up (e.g., spring.application.name)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ace32df4-16fd-44b8-b404-769b110b8031",
+              "name": "Property value and origin",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    ":toMatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "toMatch",
+                      "description": "(Required) Property key to look up (e.g., spring.application.name)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"property\": {\n    \"source\": \"string\",\n    \"value\": {}\n  },\n  \"activeContexts\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff1f84af-b753-419f-88b8-195ce7b3e805",
+              "name": "Property not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    ":toMatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "toMatch",
+                      "description": "(Required) Property key to look up (e.g., spring.application.name)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f58e40b4-73c4-430d-9ea4-6b8e5c25c8cc",
+      "name": "Loggers",
+      "description": {
+        "content": "Logger configuration management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b7963bc-903d-4b7f-8639-4ba826280232",
+          "name": "List Loggers",
+          "request": {
+            "name": "List Loggers",
+            "description": {
+              "content": "Returns all loggers with their configured and effective log levels.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4f472bb-3975-47f9-a9ca-9e34148d7b4b",
+              "name": "Logger configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"levels\": [\n    \"TRACE\",\n    \"DEBUG\",\n    \"INFO\",\n    \"WARN\",\n    \"ERROR\",\n    \"FATAL\",\n    \"OFF\"\n  ],\n  \"loggers\": {\n    \"key_0\": {\n      \"configuredLevel\": \"ERROR\",\n      \"effectiveLevel\": \"INFO\"\n    },\n    \"key_1\": {\n      \"configuredLevel\": \"TRACE\",\n      \"effectiveLevel\": \"FATAL\"\n    },\n    \"key_2\": {\n      \"configuredLevel\": \"FATAL\",\n      \"effectiveLevel\": \"ERROR\"\n    },\n    \"key_3\": {\n      \"configuredLevel\": \"OFF\",\n      \"effectiveLevel\": \"TRACE\"\n    },\n    \"key_4\": {\n      \"configuredLevel\": \"OFF\",\n      \"effectiveLevel\": \"DEBUG\"\n    }\n  },\n  \"groups\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b389225b-8ba6-454f-9d52-78c13474bef1",
+          "name": "Get Logger",
+          "request": {
+            "name": "Get Logger",
+            "description": {
+              "content": "Returns the configuration for a specific logger by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loggers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Logger name (e.g., com.example.service)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39f93fc8-7725-444c-8847-b5b3484f85d9",
+              "name": "Logger configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loggers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Logger name (e.g., com.example.service)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configuredLevel\": \"WARN\",\n  \"effectiveLevel\": \"DEBUG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "210927fd-931d-4b8f-9625-a6df43be1dbf",
+              "name": "Logger not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loggers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Logger name (e.g., com.example.service)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbac5ed4-a3a1-45a4-9383-39edc5fdb7e7",
+          "name": "Set Logger Level",
+          "request": {
+            "name": "Set Logger Level",
+            "description": {
+              "content": "Configures the log level for a specific logger at runtime. Pass null to reset to the parent logger's effective level.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loggers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Logger name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configuredLevel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9eb17060-4ddf-4d57-b05b-a90e4e9a7cc5",
+              "name": "Logger level updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loggers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Logger name"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuredLevel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5887d24e-9fce-499e-abaa-df6b9c78d6aa",
+              "name": "Invalid log level",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loggers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Logger name"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuredLevel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "615a0838-9b98-4b66-958f-21c6a886de26",
+      "name": "Info",
+      "description": {
+        "content": "Application information endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "626d0e78-7065-4c4d-b9f5-2533633f7fab",
+          "name": "Get Application Info",
+          "request": {
+            "name": "Get Application Info",
+            "description": {
+              "content": "Returns arbitrary application information from registered InfoContributors (build, git, environment, OS).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a5651d4-bb40-4348-a0e9-0d44db282874",
+              "name": "Application information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build\": {\n    \"artifact\": \"string\",\n    \"group\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"time\": \"2002-09-12T15:44:00.484Z\"\n  },\n  \"git\": {\n    \"branch\": \"string\",\n    \"commit\": {\n      \"id\": \"string\",\n      \"time\": \"1974-12-28T18:43:39.282Z\"\n    }\n  },\n  \"java\": {\n    \"version\": \"string\",\n    \"vendor\": {},\n    \"runtime\": {},\n    \"jvm\": {}\n  },\n  \"os\": {\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"arch\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7c4574c7-5b25-4ab2-8f28-7adf0a741a95",
+      "name": "Threads",
+      "description": {
+        "content": "Thread and heap diagnostics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60d9ceb0-8fcb-4f83-9c1f-6499db49ac18",
+          "name": "Get Thread Dump",
+          "request": {
+            "name": "Get Thread Dump",
+            "description": {
+              "content": "Returns a snapshot of all live threads in the JVM including stack traces, thread states, and lock information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "threaddump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be96776b-f11d-461c-979b-0f9cf8989f1d",
+              "name": "Thread dump",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "threaddump"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threads\": [\n    {\n      \"threadName\": \"string\",\n      \"threadId\": 8133,\n      \"blockedTime\": 769,\n      \"blockedCount\": 8220,\n      \"waitedTime\": 645,\n      \"waitedCount\": 7471,\n      \"lockName\": \"string\",\n      \"lockOwnerId\": 4854,\n      \"lockOwnerName\": \"string\",\n      \"daemon\": false,\n      \"inNative\": false,\n      \"suspended\": true,\n      \"threadState\": \"BLOCKED\",\n      \"priority\": 6411,\n      \"stackTrace\": [\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 2337,\n          \"className\": \"string\",\n          \"nativeMethod\": true\n        },\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 152,\n          \"className\": \"string\",\n          \"nativeMethod\": true\n        }\n      ]\n    },\n    {\n      \"threadName\": \"string\",\n      \"threadId\": 1676,\n      \"blockedTime\": 5431,\n      \"blockedCount\": 5294,\n      \"waitedTime\": 5672,\n      \"waitedCount\": 4964,\n      \"lockName\": \"string\",\n      \"lockOwnerId\": 6143,\n      \"lockOwnerName\": \"string\",\n      \"daemon\": false,\n      \"inNative\": false,\n      \"suspended\": true,\n      \"threadState\": \"TIMED_WAITING\",\n      \"priority\": 8289,\n      \"stackTrace\": [\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 7693,\n          \"className\": \"string\",\n          \"nativeMethod\": false\n        },\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 2311,\n          \"className\": \"string\",\n          \"nativeMethod\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2698193a-3481-4ceb-b267-661a229ff049",
+      "name": "Scheduling",
+      "description": {
+        "content": "Scheduled task inspection",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbe0fd60-294a-49ad-a34d-1c0d5930ecb2",
+          "name": "Get Scheduled Tasks",
+          "request": {
+            "name": "Get Scheduled Tasks",
+            "description": {
+              "content": "Returns all scheduled tasks registered in the application context, including cron, fixed-rate, and fixed-delay tasks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scheduledtasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc7719d5-9a90-41ef-8dbc-472be5c01f61",
+              "name": "Scheduled tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scheduledtasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cron\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 7950,\n      \"interval\": 54\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 2234,\n      \"interval\": 1796\n    }\n  ],\n  \"fixedDelay\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 169,\n      \"interval\": 307\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 5545,\n      \"interval\": 4966\n    }\n  ],\n  \"fixedRate\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 4097,\n      \"interval\": 850\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 134,\n      \"interval\": 3442\n    }\n  ],\n  \"custom\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 777,\n      \"interval\": 8124\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 6947,\n      \"interval\": 9305\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6a568920-034f-4043-81f5-e0e2823a8611",
+    "name": "Spring Boot 3 Actuator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.\n\nContact Support:\n Name: Spring Team",
+      "type": "text/plain"
+    }
+  }
+}

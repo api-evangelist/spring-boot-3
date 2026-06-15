@@ -1,0 +1,248 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Boot 3 Actuator API",
+    "version": "3.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Application Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/health"
+          },
+          "docs": "Returns the overall health status of the application. Aggregates all registered HealthIndicators. When security is enabled, full details are only shown to authorized users."
+        },
+        {
+          "info": {
+            "name": "Get Component Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/health/:component",
+            "params": [
+              {
+                "name": "component",
+                "value": "",
+                "type": "path",
+                "description": "Health component name (e.g., db, diskSpace, redis)"
+              }
+            ]
+          },
+          "docs": "Returns the health status of a specific component (e.g., db, diskSpace, redis, rabbit, kafka)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Application Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/info"
+          },
+          "docs": "Returns arbitrary application information from registered InfoContributors (build, git, environment, OS)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Available Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics"
+          },
+          "docs": "Returns a list of all registered Micrometer metric names available in this application."
+        },
+        {
+          "info": {
+            "name": "Get Metric Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics/:metricName",
+            "params": [
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the metric (e.g., jvm.memory.used, http.server.requests)"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Tag filter in name:value format (may be repeated)"
+              }
+            ]
+          },
+          "docs": "Returns measurements and available tags for a specific Micrometer metric. Use tag parameters to filter by dimension."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Environment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Environment Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/env"
+          },
+          "docs": "Returns all application environment properties grouped by property source (application.properties, system properties, environment variables, etc.)."
+        },
+        {
+          "info": {
+            "name": "Get Environment Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/env/:toMatch",
+            "params": [
+              {
+                "name": "toMatch",
+                "value": "",
+                "type": "path",
+                "description": "Property key to look up (e.g., spring.application.name)"
+              }
+            ]
+          },
+          "docs": "Returns the value and origin of a specific environment property key."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Loggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Loggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/loggers"
+          },
+          "docs": "Returns all loggers with their configured and effective log levels."
+        },
+        {
+          "info": {
+            "name": "Get Logger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/loggers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Logger name (e.g., com.example.service)"
+              }
+            ]
+          },
+          "docs": "Returns the configuration for a specific logger by name."
+        },
+        {
+          "info": {
+            "name": "Set Logger Level",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/loggers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Logger name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configures the log level for a specific logger at runtime. Pass null to reset to the parent logger's effective level."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Threads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Thread Dump",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/threaddump"
+          },
+          "docs": "Returns a snapshot of all live threads in the JVM including stack traces, thread states, and lock information."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scheduling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Scheduled Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/scheduledtasks"
+          },
+          "docs": "Returns all scheduled tasks registered in the application context, including cron, fixed-rate, and fixed-delay tasks."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
