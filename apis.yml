@@ -40,7 +40,7 @@ apis:
         url: https://github.com/spring-projects/spring-boot
       - type: OpenAPI
         url: openapi/spring-boot-3-actuator-openapi.yml
-      - type: Spectral Rules
+      - type: SpectralRules
         url: rules/spring-boot-3-rules.yml
   - name: Spring Boot Core Framework
     description: >-
