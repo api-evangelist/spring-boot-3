@@ -123,6 +123,10 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
+  - type: VulnerabilityDisclosure
+    url: security/spring-boot-3-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/spring-boot-3-domain-security.yml
   - type: GettingStarted
     url: https://spring.io/guides/gs/spring-boot/
   - type: GitHubRepository
