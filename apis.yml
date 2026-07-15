@@ -123,6 +123,8 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
+  - type: AgenticAccess
+    url: agentic-access/spring-boot-3-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/spring-boot-3-vulnerability-disclosure.yml
   - type: DomainSecurity
