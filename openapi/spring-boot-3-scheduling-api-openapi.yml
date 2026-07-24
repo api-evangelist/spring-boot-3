@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Spring Boot 3 Actuator Environment Scheduling API
+  description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
+  version: 3.2.0
+  contact:
+    name: Spring Team
+    url: https://spring.io/team
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator
+  description: Local Spring Boot 3 application with Actuator enabled
+tags:
+- name: Scheduling
+  description: Scheduled task inspection
+paths:
+  /scheduledtasks:
+    get:
+      operationId: getScheduledTasks
+      summary: Get Scheduled Tasks
+      description: Returns all scheduled tasks registered in the application context, including cron, fixed-rate, and fixed-delay tasks.
+      tags:
+      - Scheduling
+      responses:
+        '200':
+          description: Scheduled tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduledTasksResponse'
+components:
+  schemas:
+    ScheduledTasksResponse:
+      type: object
+      description: All scheduled tasks registered in the application
+      properties:
+        cron:
+          type: array
+          description: Tasks scheduled with cron expressions
+          items:
+            $ref: '#/components/schemas/ScheduledTask'
+        fixedDelay:
+          type: array
+          description: Tasks scheduled with fixed delay
+          items:
+            $ref: '#/components/schemas/ScheduledTask'
+        fixedRate:
+          type: array
+          description: Tasks scheduled with fixed rate
+          items:
+            $ref: '#/components/schemas/ScheduledTask'
+        custom:
+          type: array
+          description: Tasks using custom scheduling triggers
+          items:
+            $ref: '#/components/schemas/ScheduledTask'
+    ScheduledTask:
+      type: object
+      description: A single scheduled task
+      properties:
+        runnable:
+          type: object
+          properties:
+            target:
+              type: string
+              description: Fully qualified method name
+        expression:
+          type: string
+          description: Cron expression (for cron tasks)
+        initialDelay:
+          type: integer
+          format: int64
+          description: Initial delay in milliseconds
+        interval:
+          type: integer
+          format: int64
+          description: Fixed rate or delay in milliseconds

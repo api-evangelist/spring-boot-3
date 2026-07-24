@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: Spring Boot 3 Actuator Environment Health API
+  description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
+  version: 3.2.0
+  contact:
+    name: Spring Team
+    url: https://spring.io/team
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator
+  description: Local Spring Boot 3 application with Actuator enabled
+tags:
+- name: Health
+  description: Application and component health indicators
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Get Application Health
+      description: Returns the overall health status of the application. Aggregates all registered HealthIndicators. When security is enabled, full details are only shown to authorized users.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Application is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Application is unhealthy or in OUT_OF_SERVICE state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/{component}:
+    get:
+      operationId: getHealthComponent
+      summary: Get Component Health
+      description: Returns the health status of a specific component (e.g., db, diskSpace, redis, rabbit, kafka).
+      tags:
+      - Health
+      parameters:
+      - name: component
+        in: path
+        required: true
+        description: Health component name (e.g., db, diskSpace, redis)
+        schema:
+          type: string
+          example: db
+      responses:
+        '200':
+          description: Component health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComponentHealth'
+        '404':
+          description: Component not found
+components:
+  schemas:
+    ComponentHealth:
+      type: object
+      description: Health status of a single component
+      properties:
+        status:
+          type: string
+          description: Component status
+          enum:
+          - UP
+          - DOWN
+          - OUT_OF_SERVICE
+          - UNKNOWN
+        details:
+          type: object
+          description: Additional component-specific health details
+          additionalProperties: true
+        components:
+          type: object
+          description: Nested component health (for composite indicators)
+          additionalProperties:
+            $ref: '#/components/schemas/ComponentHealth'
+    HealthResponse:
+      type: object
+      description: Overall application health aggregating all health indicators
+      properties:
+        status:
+          type: string
+          description: Overall health status
+          enum:
+          - UP
+          - DOWN
+          - OUT_OF_SERVICE
+          - UNKNOWN
+        components:
+          type: object
+          description: Health status of individual components
+          additionalProperties:
+            $ref: '#/components/schemas/ComponentHealth'

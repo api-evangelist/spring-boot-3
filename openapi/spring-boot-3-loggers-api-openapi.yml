@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Spring Boot 3 Actuator Environment Loggers API
+  description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
+  version: 3.2.0
+  contact:
+    name: Spring Team
+    url: https://spring.io/team
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator
+  description: Local Spring Boot 3 application with Actuator enabled
+tags:
+- name: Loggers
+  description: Logger configuration management
+paths:
+  /loggers:
+    get:
+      operationId: listLoggers
+      summary: List Loggers
+      description: Returns all loggers with their configured and effective log levels.
+      tags:
+      - Loggers
+      responses:
+        '200':
+          description: Logger configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggersResponse'
+  /loggers/{name}:
+    get:
+      operationId: getLogger
+      summary: Get Logger
+      description: Returns the configuration for a specific logger by name.
+      tags:
+      - Loggers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: Logger name (e.g., com.example.service)
+        schema:
+          type: string
+          example: com.example.service.UserService
+      responses:
+        '200':
+          description: Logger configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggerDetail'
+        '404':
+          description: Logger not found
+    post:
+      operationId: setLoggerLevel
+      summary: Set Logger Level
+      description: Configures the log level for a specific logger at runtime. Pass null to reset to the parent logger's effective level.
+      tags:
+      - Loggers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: Logger name
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogLevelRequest'
+      responses:
+        '204':
+          description: Logger level updated
+        '400':
+          description: Invalid log level
+components:
+  schemas:
+    LoggerDetail:
+      type: object
+      description: Configuration for a single logger
+      properties:
+        configuredLevel:
+          type: string
+          description: Explicitly configured level (null if not set)
+          enum:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false
+          nullable: true
+        effectiveLevel:
+          type: string
+          description: Effective level inherited from parent if not explicitly set
+          enum:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false
+    LoggersResponse:
+      type: object
+      description: All loggers with their levels
+      properties:
+        levels:
+          type: array
+          description: Available log levels
+          items:
+            type: string
+          example:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false
+        loggers:
+          type: object
+          description: Logger configurations keyed by logger name
+          additionalProperties:
+            $ref: '#/components/schemas/LoggerDetail'
+        groups:
+          type: object
+          description: Logger groups (Spring Boot defined groups)
+          additionalProperties:
+            type: object
+    LogLevelRequest:
+      type: object
+      description: Request body to set a logger level
+      properties:
+        configuredLevel:
+          type: string
+          description: Log level to set (null to reset)
+          enum:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false
+          nullable: true

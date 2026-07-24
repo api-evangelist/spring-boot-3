@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Spring Boot 3 Actuator Environment Threads API
+  description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
+  version: 3.2.0
+  contact:
+    name: Spring Team
+    url: https://spring.io/team
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator
+  description: Local Spring Boot 3 application with Actuator enabled
+tags:
+- name: Threads
+  description: Thread and heap diagnostics
+paths:
+  /threaddump:
+    get:
+      operationId: getThreadDump
+      summary: Get Thread Dump
+      description: Returns a snapshot of all live threads in the JVM including stack traces, thread states, and lock information.
+      tags:
+      - Threads
+      responses:
+        '200':
+          description: Thread dump
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadDumpResponse'
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    ThreadDumpResponse:
+      type: object
+      description: JVM thread dump snapshot
+      properties:
+        threads:
+          type: array
+          items:
+            type: object
+            properties:
+              threadName:
+                type: string
+              threadId:
+                type: integer
+                format: int64
+              blockedTime:
+                type: integer
+                format: int64
+              blockedCount:
+                type: integer
+                format: int64
+              waitedTime:
+                type: integer
+                format: int64
+              waitedCount:
+                type: integer
+                format: int64
+              lockName:
+                type: string
+                nullable: true
+              lockOwnerId:
+                type: integer
+                format: int64
+              lockOwnerName:
+                type: string
+                nullable: true
+              daemon:
+                type: boolean
+              inNative:
+                type: boolean
+              suspended:
+                type: boolean
+              threadState:
+                type: string
+                enum:
+                - NEW
+                - RUNNABLE
+                - BLOCKED
+                - WAITING
+                - TIMED_WAITING
+                - TERMINATED
+              priority:
+                type: integer
+              stackTrace:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    classLoaderName:
+                      type: string
+                    moduleName:
+                      type: string
+                    moduleVersion:
+                      type: string
+                    methodName:
+                      type: string
+                    fileName:
+                      type: string
+                    lineNumber:
+                      type: integer
+                    className:
+                      type: string
+                    nativeMethod:
+                      type: boolean

@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Spring Boot 3 Actuator Environment Info API
+  description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
+  version: 3.2.0
+  contact:
+    name: Spring Team
+    url: https://spring.io/team
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator
+  description: Local Spring Boot 3 application with Actuator enabled
+tags:
+- name: Info
+  description: Application information endpoints
+paths:
+  /info:
+    get:
+      operationId: getInfo
+      summary: Get Application Info
+      description: Returns arbitrary application information from registered InfoContributors (build, git, environment, OS).
+      tags:
+      - Info
+      responses:
+        '200':
+          description: Application information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+components:
+  schemas:
+    InfoResponse:
+      type: object
+      description: Application information from registered InfoContributors
+      properties:
+        build:
+          type: object
+          description: Build information from META-INF/build-info.properties
+          properties:
+            artifact:
+              type: string
+            group:
+              type: string
+            name:
+              type: string
+            version:
+              type: string
+            time:
+              type: string
+              format: date-time
+        git:
+          type: object
+          description: Git commit information from git.properties
+          properties:
+            branch:
+              type: string
+            commit:
+              type: object
+              properties:
+                id:
+                  type: string
+                time:
+                  type: string
+                  format: date-time
+        java:
+          type: object
+          description: JVM runtime information
+          properties:
+            version:
+              type: string
+            vendor:
+              type: object
+            runtime:
+              type: object
+            jvm:
+              type: object
+        os:
+          type: object
+          description: Operating system information
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+            arch:
+              type: string
