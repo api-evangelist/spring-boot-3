@@ -1,0 +1,26 @@
+{
+  "provider": "spring-boot-3",
+  "sources": [
+    "spring-boot-3-environment-api-openapi.yml",
+    "spring-boot-3-health-api-openapi.yml",
+    "spring-boot-3-info-api-openapi.yml",
+    "spring-boot-3-loggers-api-openapi.yml",
+    "spring-boot-3-metrics-api-openapi.yml",
+    "spring-boot-3-scheduling-api-openapi.yml",
+    "spring-boot-3-threads-api-openapi.yml"
+  ],
+  "outputs": [
+    "spring-boot-3-environment-api-openapi.yml",
+    "spring-boot-3-health-api-openapi.yml",
+    "spring-boot-3-info-api-openapi.yml",
+    "spring-boot-3-loggers-api-openapi.yml",
+    "spring-boot-3-metrics-api-openapi.yml",
+    "spring-boot-3-scheduling-api-openapi.yml",
+    "spring-boot-3-threads-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
