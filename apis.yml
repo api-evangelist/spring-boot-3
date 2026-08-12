@@ -238,6 +238,9 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/spring-projects/spring-boot/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/spring-boot-3-agentic-access.yml
   - type: VulnerabilityDisclosure
