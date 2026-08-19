@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "5cb2cf15-f6c5-47c0-97e8-fa357338d92a",
+      "name": "Threads",
+      "description": {
+        "content": "Thread and heap diagnostics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1eab3efc-1be9-47a7-bca9-3ae463ddef82",
+          "name": "Get Thread Dump",
+          "request": {
+            "name": "Get Thread Dump",
+            "description": {
+              "content": "Returns a snapshot of all live threads in the JVM including stack traces, thread states, and lock information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "threaddump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5d8141c-46a5-4783-bd1f-a08d4014dbe8",
+              "name": "Thread dump",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "threaddump"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threads\": [\n    {\n      \"threadName\": \"string\",\n      \"threadId\": 2714,\n      \"blockedTime\": 788,\n      \"blockedCount\": 5308,\n      \"waitedTime\": 5832,\n      \"waitedCount\": 8829,\n      \"lockName\": \"string\",\n      \"lockOwnerId\": 2025,\n      \"lockOwnerName\": \"string\",\n      \"daemon\": false,\n      \"inNative\": true,\n      \"suspended\": true,\n      \"threadState\": \"WAITING\",\n      \"priority\": 2370,\n      \"stackTrace\": [\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 5206,\n          \"className\": \"string\",\n          \"nativeMethod\": true\n        },\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 6187,\n          \"className\": \"string\",\n          \"nativeMethod\": false\n        }\n      ]\n    },\n    {\n      \"threadName\": \"string\",\n      \"threadId\": 7506,\n      \"blockedTime\": 4907,\n      \"blockedCount\": 7672,\n      \"waitedTime\": 8795,\n      \"waitedCount\": 1707,\n      \"lockName\": \"string\",\n      \"lockOwnerId\": 4529,\n      \"lockOwnerName\": \"string\",\n      \"daemon\": false,\n      \"inNative\": false,\n      \"suspended\": false,\n      \"threadState\": \"RUNNABLE\",\n      \"priority\": 1519,\n      \"stackTrace\": [\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 284,\n          \"className\": \"string\",\n          \"nativeMethod\": true\n        },\n        {\n          \"classLoaderName\": \"string\",\n          \"moduleName\": \"string\",\n          \"moduleVersion\": \"string\",\n          \"methodName\": \"string\",\n          \"fileName\": \"string\",\n          \"lineNumber\": 7515,\n          \"className\": \"string\",\n          \"nativeMethod\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3263ffc8-3dde-4629-b2be-9dab059f244e",
+    "name": "Spring Boot 3 Actuator Environment Threads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.\n\nContact Support:\n Name: Spring Team",
+      "type": "text/plain"
+    }
+  }
+}

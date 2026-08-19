@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "06fd5874-d69d-488a-938d-3b0ceeed5014",
+      "name": "Scheduling",
+      "description": {
+        "content": "Scheduled task inspection",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69b86c8c-909a-42c1-a5b1-449643431566",
+          "name": "Get Scheduled Tasks",
+          "request": {
+            "name": "Get Scheduled Tasks",
+            "description": {
+              "content": "Returns all scheduled tasks registered in the application context, including cron, fixed-rate, and fixed-delay tasks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scheduledtasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "799e7432-047e-4cf5-b2e8-ceabf9847e49",
+              "name": "Scheduled tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scheduledtasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cron\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 1606,\n      \"interval\": 7448\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 515,\n      \"interval\": 865\n    }\n  ],\n  \"fixedDelay\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 2092,\n      \"interval\": 6050\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 5570,\n      \"interval\": 5731\n    }\n  ],\n  \"fixedRate\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 7400,\n      \"interval\": 493\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 6971,\n      \"interval\": 7811\n    }\n  ],\n  \"custom\": [\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 646,\n      \"interval\": 1669\n    },\n    {\n      \"runnable\": {\n        \"target\": \"string\"\n      },\n      \"expression\": \"string\",\n      \"initialDelay\": 5467,\n      \"interval\": 274\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "770bc414-dac5-4742-aa83-d9d06d3da369",
+    "name": "Spring Boot 3 Actuator Environment Scheduling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.\n\nContact Support:\n Name: Spring Team",
+      "type": "text/plain"
+    }
+  }
+}

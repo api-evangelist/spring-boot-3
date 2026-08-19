@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "935ae92c-4c5b-4c68-9db5-eada5c57350b",
+      "name": "Health",
+      "description": {
+        "content": "Application and component health indicators",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d637172-8966-4a88-bf6d-484318d4570e",
+          "name": "Get Application Health",
+          "request": {
+            "name": "Get Application Health",
+            "description": {
+              "content": "Returns the overall health status of the application. Aggregates all registered HealthIndicators. When security is enabled, full details are only shown to authorized users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a5aa4d4-b77e-46e5-8bbd-f115f8d69b2a",
+              "name": "Application is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"OUT_OF_SERVICE\",\n      \"details\": {\n        \"key_0\": 1470.5558999739687,\n        \"key_1\": 4506.477275490781\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_1\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": \"string\"\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_2\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": 3783.6494278774258\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_3\": {\n      \"status\": \"DOWN\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": false,\n        \"key_2\": 7265\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_4\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": 124.04217456642775,\n        \"key_1\": 7830.127694805582\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3a43449-ec9f-48df-929e-dd6ca7ba9aa3",
+              "name": "Application is unhealthy or in OUT_OF_SERVICE state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"OUT_OF_SERVICE\",\n      \"details\": {\n        \"key_0\": 1470.5558999739687,\n        \"key_1\": 4506.477275490781\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_1\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": \"string\"\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_2\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": 3783.6494278774258\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_3\": {\n      \"status\": \"DOWN\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": false,\n        \"key_2\": 7265\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_4\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": 124.04217456642775,\n        \"key_1\": 7830.127694805582\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2435ff8-2e25-4084-8583-bcfccd139b3d",
+          "name": "Get Component Health",
+          "request": {
+            "name": "Get Component Health",
+            "description": {
+              "content": "Returns the health status of a specific component (e.g., db, diskSpace, redis, rabbit, kafka).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health",
+                ":component"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "component",
+                  "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f19564f7-5db5-4bc1-9e25-c4e30af056d7",
+              "name": "Component health status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    ":component"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "component",
+                      "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"details\": {\n    \"key_0\": false,\n    \"key_1\": 8322.509349955324\n  },\n  \"components\": {\n    \"key_0\": {\n      \"status\": \"UNKNOWN\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7620.264014219337,\n        \"key_2\": \"string\"\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    },\n    \"key_1\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"key_0\": 828.5286460079589,\n        \"key_1\": 5858,\n        \"key_2\": \"string\"\n      },\n      \"components\": {\n        \"key_0\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Circular reference to #/components/schemas/ComponentHealth detected>\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4636edba-5e31-482f-9d7a-fb782458c3d9",
+              "name": "Component not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    ":component"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "component",
+                      "description": "(Required) Health component name (e.g., db, diskSpace, redis)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6cf5cefa-5a81-4c85-8c2c-64f6f779a2dc",
+    "name": "Spring Boot 3 Actuator Environment Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.\n\nContact Support:\n Name: Spring Team",
+      "type": "text/plain"
+    }
+  }
+}

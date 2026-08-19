@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Boot 3 Actuator Environment Loggers API",
+    "version": "3.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Loggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/loggers"
+          },
+          "docs": "Returns all loggers with their configured and effective log levels."
+        },
+        {
+          "info": {
+            "name": "Get Logger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/loggers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Logger name (e.g., com.example.service)"
+              }
+            ]
+          },
+          "docs": "Returns the configuration for a specific logger by name."
+        },
+        {
+          "info": {
+            "name": "Set Logger Level",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/loggers/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Logger name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configures the log level for a specific logger at runtime. Pass null to reset to the parent logger's effective level."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

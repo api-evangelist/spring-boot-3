@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Boot 3 Actuator Environment API",
+    "version": "3.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Environment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Environment Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/env"
+          },
+          "docs": "Returns all application environment properties grouped by property source (application.properties, system properties, environment variables, etc.)."
+        },
+        {
+          "info": {
+            "name": "Get Environment Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/env/:toMatch",
+            "params": [
+              {
+                "name": "toMatch",
+                "value": "",
+                "type": "path",
+                "description": "Property key to look up (e.g., spring.application.name)"
+              }
+            ]
+          },
+          "docs": "Returns the value and origin of a specific environment property key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

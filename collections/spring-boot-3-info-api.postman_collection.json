@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "de31396f-2bb2-483c-9306-a5ce4bd85419",
+      "name": "Info",
+      "description": {
+        "content": "Application information endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15c098ef-a2ac-45b7-8cfd-afd9f9289b3a",
+          "name": "Get Application Info",
+          "request": {
+            "name": "Get Application Info",
+            "description": {
+              "content": "Returns arbitrary application information from registered InfoContributors (build, git, environment, OS).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a9cfcfe-b744-4ed2-aebe-2c5038d47f30",
+              "name": "Application information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build\": {\n    \"artifact\": \"string\",\n    \"group\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"time\": \"2006-02-14T13:45:52.271Z\"\n  },\n  \"git\": {\n    \"branch\": \"string\",\n    \"commit\": {\n      \"id\": \"string\",\n      \"time\": \"1956-07-16T21:20:12.354Z\"\n    }\n  },\n  \"java\": {\n    \"version\": \"string\",\n    \"vendor\": {},\n    \"runtime\": {},\n    \"jvm\": {}\n  },\n  \"os\": {\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"arch\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "39229118-05d4-40ff-9e2f-446088c5f6c6",
+    "name": "Spring Boot 3 Actuator Environment Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.\n\nContact Support:\n Name: Spring Team",
+      "type": "text/plain"
+    }
+  }
+}

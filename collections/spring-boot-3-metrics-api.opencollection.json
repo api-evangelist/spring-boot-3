@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Boot 3 Actuator Environment Metrics API",
+    "version": "3.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Available Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics"
+          },
+          "docs": "Returns a list of all registered Micrometer metric names available in this application."
+        },
+        {
+          "info": {
+            "name": "Get Metric Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics/:metricName",
+            "params": [
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the metric (e.g., jvm.memory.used, http.server.requests)"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Tag filter in name:value format (may be repeated)"
+              }
+            ]
+          },
+          "docs": "Returns measurements and available tags for a specific Micrometer metric. Use tag parameters to filter by dimension."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

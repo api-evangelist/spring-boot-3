@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Boot 3 Actuator Environment Health API",
+    "version": "3.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Application Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/health"
+          },
+          "docs": "Returns the overall health status of the application. Aggregates all registered HealthIndicators. When security is enabled, full details are only shown to authorized users."
+        },
+        {
+          "info": {
+            "name": "Get Component Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/health/:component",
+            "params": [
+              {
+                "name": "component",
+                "value": "",
+                "type": "path",
+                "description": "Health component name (e.g., db, diskSpace, redis)"
+              }
+            ]
+          },
+          "docs": "Returns the health status of a specific component (e.g., db, diskSpace, redis, rabbit, kafka)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
