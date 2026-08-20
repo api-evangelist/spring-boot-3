@@ -98,6 +98,10 @@ apis:
   tags:
   - Authentication
   - Authorization
+  - Security
+  tags_raw:
+  - Authentication
+  - Authorization
   - OAuth2
   - Security
   properties:
