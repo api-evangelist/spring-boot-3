@@ -5,6 +5,19 @@ description: >-
   with Micrometer tracing, and a modernized auto-configuration system. Spring Boot 3 simplifies the development of
   production-ready stand-alone Spring applications with embedded servers, health endpoints, and externalized
   configuration.
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -242,6 +255,12 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
+  - type: IssueTracker
+    url: https://github.com/spring-projects/spring-boot/issues
+  - type: CodeOfConduct
+    url: https://github.com/spring-projects/.github/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/spring-projects/spring-boot/blob/main/CONTRIBUTING.adoc
   - type: License
     name: Apache-2.0
     url: https://github.com/spring-projects/spring-boot/blob/main/LICENSE
