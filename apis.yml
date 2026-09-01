@@ -30,7 +30,7 @@ accessModel:
   - plans
   generated: '2026-07-22'
   method: derived
-image: https://spring.io/img/spring-logo.svg
+image: ''
 url: https://spring.io/projects/spring-boot
 kind: opensource
 created: '2024-01-15'
