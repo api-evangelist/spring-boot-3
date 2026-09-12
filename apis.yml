@@ -255,6 +255,8 @@ maintainers:
     email: spring-team@vmware.com
     url: https://spring.io/team
 common:
+  - type: Website
+    url: https://www.spring.io/
   - type: IssueTracker
     url: https://github.com/spring-projects/spring-boot/issues
   - type: CodeOfConduct
