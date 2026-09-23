@@ -1,13 +1,7 @@
 {
   "provider": "spring-boot-3",
   "sources": [
-    "spring-boot-3-environment-api-openapi.yml",
-    "spring-boot-3-health-api-openapi.yml",
-    "spring-boot-3-info-api-openapi.yml",
-    "spring-boot-3-loggers-api-openapi.yml",
-    "spring-boot-3-metrics-api-openapi.yml",
-    "spring-boot-3-scheduling-api-openapi.yml",
-    "spring-boot-3-threads-api-openapi.yml"
+    "_original/spring-boot-3-actuator-openapi.yml"
   ],
   "outputs": [
     "spring-boot-3-environment-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "spring-boot-3-actuator-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "spring-boot-3-environment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-loggers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-scheduling-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spring-boot-3-threads-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

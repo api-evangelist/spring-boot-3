@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Spring Boot 3 Actuator Environment Loggers API
+  title: Spring Boot 3 Actuator Loggers API
   description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
   version: 3.2.0
   contact:
@@ -80,33 +80,6 @@ paths:
           description: Invalid log level
 components:
   schemas:
-    LoggerDetail:
-      type: object
-      description: Configuration for a single logger
-      properties:
-        configuredLevel:
-          type: string
-          description: Explicitly configured level (null if not set)
-          enum:
-          - TRACE
-          - DEBUG
-          - INFO
-          - WARN
-          - ERROR
-          - FATAL
-          - false
-          nullable: true
-        effectiveLevel:
-          type: string
-          description: Effective level inherited from parent if not explicitly set
-          enum:
-          - TRACE
-          - DEBUG
-          - INFO
-          - WARN
-          - ERROR
-          - FATAL
-          - false
     LoggersResponse:
       type: object
       description: All loggers with their levels
@@ -150,3 +123,30 @@ components:
           - FATAL
           - false
           nullable: true
+    LoggerDetail:
+      type: object
+      description: Configuration for a single logger
+      properties:
+        configuredLevel:
+          type: string
+          description: Explicitly configured level (null if not set)
+          enum:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false
+          nullable: true
+        effectiveLevel:
+          type: string
+          description: Effective level inherited from parent if not explicitly set
+          enum:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+          - false

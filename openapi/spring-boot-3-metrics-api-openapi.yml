@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Spring Boot 3 Actuator Environment Metrics API
+  title: Spring Boot 3 Actuator Metrics API
   description: Production-ready monitoring and management endpoints provided by Spring Boot 3 Actuator. Includes health checks, Micrometer metrics, environment inspection, logger configuration, thread dumps, scheduled tasks, HTTP exchange tracing, and more. Endpoints are served under the /actuator base path and can be secured via Spring Security.
   version: 3.2.0
   contact:
@@ -63,6 +63,20 @@ paths:
           description: Metric not found
 components:
   schemas:
+    MetricsList:
+      type: object
+      description: Available Micrometer metric names
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+          example:
+          - jvm.memory.used
+          - jvm.gc.pause
+          - http.server.requests
+          - process.uptime
+          - system.cpu.usage
     MetricDetail:
       type: object
       description: Measurements and metadata for a specific metric
@@ -104,17 +118,3 @@ components:
                 type: array
                 items:
                   type: string
-    MetricsList:
-      type: object
-      description: Available Micrometer metric names
-      properties:
-        names:
-          type: array
-          items:
-            type: string
-          example:
-          - jvm.memory.used
-          - jvm.gc.pause
-          - http.server.requests
-          - process.uptime
-          - system.cpu.usage
